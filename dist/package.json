@@ -1,0 +1,55 @@
+{
+    "author": {
+        "email": "hello@nativeship.io",
+        "name": "Administrator"
+    },
+    "description": "Helps you merge, split, compress, convert, and edit PDF files.",
+    "devDependencies": {
+        "@n8n/node-cli": "0.41.2",
+        "@types/node": "22.15.29",
+        "eslint": "9.29.0",
+        "prettier": "3.6.2",
+        "typescript": "5.9.3"
+    },
+    "engines": {
+        "node": "\u003e=22.22.0"
+    },
+    "files": [
+        "dist"
+    ],
+    "homepage": "https://api.ilovepdf.com/v1",
+    "keywords": [
+        "n8n-community-node-package",
+        "i-love-pdf",
+        "nativeship-nodes",
+        "n8n-nodes",
+        "nativeship-n8n-nodes",
+        "pdf-n8n-nodes",
+        "pdf-nodes"
+    ],
+    "license": "MIT",
+    "n8n": {
+        "credentials": [
+            "dist/credentials/IlovepdfApi.credentials.js"
+        ],
+        "n8nNodesApiVersion": 1,
+        "nodes": [
+            "dist/nodes/Ilovepdf/Ilovepdf.node.js"
+        ],
+        "strict": true
+    },
+    "name": "@nativeship/n8n-nodes-i-love-pdf",
+    "peerDependencies": {
+        "n8n-workflow": "*"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "scripts": {
+        "build": "n8n-node build",
+        "dev": "n8n-node dev",
+        "lint": "n8n-node lint",
+        "lint:fix": "n8n-node lint --fix"
+    },
+    "version": "1.0.0"
+}

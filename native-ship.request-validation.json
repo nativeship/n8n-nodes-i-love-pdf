@@ -1,0 +1,1061 @@
+{
+  "schemaVersion": 1,
+  "fixtures": [
+    {
+      "operationId": "requestToken",
+      "method": "POST",
+      "path": "/auth",
+      "serverId": "documentServer1HttpsApiIlovepdfComV1",
+      "authentication": [
+        {
+          "schemes": [
+            "BearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": [
+          {
+            "name": "public_key",
+            "inputName": "public_key",
+            "sample": "value/id",
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "expires_in",
+            "type": "integer"
+          },
+          {
+            "name": "token",
+            "type": "string"
+          }
+        ],
+        "simplifiedFields": [
+          "expires_in",
+          "token"
+        ]
+      },
+      "errors": [
+        {
+          "status": "401",
+          "title": "Authentication credentials are missing or invalid"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "requestToken",
+        "method": "POST",
+        "path": "/auth",
+        "serverId": "documentServer1HttpsApiIlovepdfComV1",
+        "request": {
+          "method": "POST",
+          "url": "=/auth",
+          "query": [],
+          "body": [
+            {
+              "name": "public_key",
+              "source": "additionalFields"
+            }
+          ],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "BearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "expires_in",
+              "type": "integer"
+            },
+            {
+              "name": "token",
+              "type": "string"
+            }
+          ],
+          "simplifiedFields": [
+            "expires_in",
+            "token"
+          ]
+        },
+        "errors": [
+          {
+            "status": "401",
+            "title": "Authentication credentials are missing or invalid"
+          }
+        ],
+        "unsupportedSemantics": []
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "downloadFile",
+      "method": "GET",
+      "path": "/{server}/v1/download/{task}",
+      "serverId": "documentServer1HttpsApiIlovepdfComV1",
+      "authentication": [
+        {
+          "schemes": [
+            "BearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "server",
+          "inputName": "server",
+          "sample": "value/id",
+          "location": "path",
+          "required": true,
+          "arrayFormat": "indices"
+        },
+        {
+          "name": "task",
+          "inputName": "task",
+          "sample": "value/id",
+          "location": "path",
+          "required": true,
+          "arrayFormat": "indices"
+        }
+      ],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": []
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {},
+      "errors": [
+        {
+          "status": "401",
+          "title": "Authentication credentials are missing or invalid"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "downloadFile",
+        "method": "GET",
+        "path": "/{server}/v1/download/{task}",
+        "serverId": "documentServer1HttpsApiIlovepdfComV1",
+        "request": {
+          "method": "GET",
+          "url": "=/{{$parameter[\"server\"]}}/v1/download/{{$parameter[\"task\"]}}",
+          "query": [],
+          "body": [],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "BearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {},
+        "errors": [
+          {
+            "status": "401",
+            "title": "Authentication credentials are missing or invalid"
+          }
+        ],
+        "unsupportedSemantics": []
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "processFiles",
+      "method": "POST",
+      "path": "/{server}/v1/process",
+      "serverId": "documentServer1HttpsApiIlovepdfComV1",
+      "authentication": [
+        {
+          "schemes": [
+            "BearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "server",
+          "inputName": "server",
+          "sample": "value/id",
+          "location": "path",
+          "required": true,
+          "arrayFormat": "indices"
+        }
+      ],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": [
+          {
+            "name": "files",
+            "inputName": "files",
+            "sample": [
+              {}
+            ],
+            "type": "array",
+            "required": false
+          },
+          {
+            "name": "task",
+            "inputName": "task",
+            "sample": "value/id",
+            "type": "string",
+            "required": false
+          },
+          {
+            "name": "tool",
+            "inputName": "tool",
+            "sample": "value/id",
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "download_filename",
+            "type": "string"
+          },
+          {
+            "name": "filesize",
+            "type": "integer"
+          }
+        ],
+        "simplifiedFields": [
+          "download_filename",
+          "filesize"
+        ]
+      },
+      "errors": [
+        {
+          "status": "401",
+          "title": "Authentication credentials are missing or invalid"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "processFiles",
+        "method": "POST",
+        "path": "/{server}/v1/process",
+        "serverId": "documentServer1HttpsApiIlovepdfComV1",
+        "request": {
+          "method": "POST",
+          "url": "=/{{$parameter[\"server\"]}}/v1/process",
+          "query": [],
+          "body": [
+            {
+              "name": "files",
+              "source": "additionalFields"
+            },
+            {
+              "name": "task",
+              "source": "additionalFields"
+            },
+            {
+              "name": "tool",
+              "source": "additionalFields"
+            }
+          ],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "BearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "download_filename",
+              "type": "string"
+            },
+            {
+              "name": "filesize",
+              "type": "integer"
+            }
+          ],
+          "simplifiedFields": [
+            "download_filename",
+            "filesize"
+          ]
+        },
+        "errors": [
+          {
+            "status": "401",
+            "title": "Authentication credentials are missing or invalid"
+          }
+        ],
+        "unsupportedSemantics": [
+          "advanced parameter files"
+        ]
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "startTask",
+      "method": "GET",
+      "path": "/start/{tool}/{region}",
+      "serverId": "documentServer1HttpsApiIlovepdfComV1",
+      "authentication": [
+        {
+          "schemes": [
+            "BearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "tool",
+          "inputName": "tool",
+          "sample": "value/id",
+          "location": "path",
+          "required": true,
+          "arrayFormat": "indices"
+        },
+        {
+          "name": "region",
+          "inputName": "region",
+          "sample": "value/id",
+          "location": "path",
+          "required": true,
+          "arrayFormat": "indices"
+        }
+      ],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": []
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "server",
+            "type": "string"
+          },
+          {
+            "name": "task",
+            "type": "string"
+          }
+        ],
+        "simplifiedFields": [
+          "server",
+          "task"
+        ]
+      },
+      "errors": [
+        {
+          "status": "401",
+          "title": "Authentication credentials are missing or invalid"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "startTask",
+        "method": "GET",
+        "path": "/start/{tool}/{region}",
+        "serverId": "documentServer1HttpsApiIlovepdfComV1",
+        "request": {
+          "method": "GET",
+          "url": "=/start/{{$parameter[\"tool\"]}}/{{$parameter[\"region\"]}}",
+          "query": [],
+          "body": [],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "BearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "server",
+              "type": "string"
+            },
+            {
+              "name": "task",
+              "type": "string"
+            }
+          ],
+          "simplifiedFields": [
+            "server",
+            "task"
+          ]
+        },
+        "errors": [
+          {
+            "status": "401",
+            "title": "Authentication credentials are missing or invalid"
+          }
+        ],
+        "unsupportedSemantics": []
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "uploadFile",
+      "method": "POST",
+      "path": "/{server}/v1/upload",
+      "serverId": "documentServer1HttpsApiIlovepdfComV1",
+      "authentication": [
+        {
+          "schemes": [
+            "BearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "server",
+          "inputName": "server",
+          "sample": "value/id",
+          "location": "path",
+          "required": true,
+          "arrayFormat": "indices"
+        },
+        {
+          "name": "task",
+          "inputName": "task",
+          "sample": "value/id",
+          "location": "query",
+          "required": true,
+          "arrayFormat": "indices"
+        }
+      ],
+      "request": {
+        "contentType": "multipart/form-data",
+        "representation": "structured",
+        "fields": [
+          {
+            "name": "file",
+            "inputName": "file",
+            "sample": "file-content",
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "server_filename",
+            "type": "string"
+          }
+        ],
+        "simplifiedFields": [
+          "server_filename"
+        ]
+      },
+      "errors": [
+        {
+          "status": "401",
+          "title": "Authentication credentials are missing or invalid"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "uploadFile",
+        "method": "POST",
+        "path": "/{server}/v1/upload",
+        "serverId": "documentServer1HttpsApiIlovepdfComV1",
+        "request": {
+          "method": "POST",
+          "url": "=/{{$parameter[\"server\"]}}/v1/upload",
+          "query": [
+            {
+              "name": "task",
+              "source": "parameter"
+            }
+          ],
+          "body": [
+            {
+              "name": "file",
+              "source": "additionalFields"
+            }
+          ],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "BearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "server_filename",
+              "type": "string"
+            }
+          ],
+          "simplifiedFields": [
+            "server_filename"
+          ]
+        },
+        "errors": [
+          {
+            "status": "401",
+            "title": "Authentication credentials are missing or invalid"
+          }
+        ],
+        "unsupportedSemantics": [
+          "non-json request content"
+        ]
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "createSignatureRequest",
+      "method": "POST",
+      "path": "/{server}/v1/signature",
+      "serverId": "documentServer1HttpsApiIlovepdfComV1",
+      "authentication": [
+        {
+          "schemes": [
+            "BearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "server",
+          "inputName": "server",
+          "sample": "value/id",
+          "location": "path",
+          "required": true,
+          "arrayFormat": "indices"
+        }
+      ],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": [
+          {
+            "name": "files",
+            "inputName": "files",
+            "sample": [
+              {}
+            ],
+            "type": "array",
+            "required": false
+          },
+          {
+            "name": "signers",
+            "inputName": "signers",
+            "sample": [
+              {}
+            ],
+            "type": "array",
+            "required": false
+          },
+          {
+            "name": "task",
+            "inputName": "task",
+            "sample": "value/id",
+            "type": "string",
+            "required": false
+          }
+        ]
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "token_requester",
+            "type": "string"
+          }
+        ],
+        "simplifiedFields": [
+          "token_requester"
+        ]
+      },
+      "errors": [
+        {
+          "status": "401",
+          "title": "Authentication credentials are missing or invalid"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "createSignatureRequest",
+        "method": "POST",
+        "path": "/{server}/v1/signature",
+        "serverId": "documentServer1HttpsApiIlovepdfComV1",
+        "request": {
+          "method": "POST",
+          "url": "=/{{$parameter[\"server\"]}}/v1/signature",
+          "query": [],
+          "body": [
+            {
+              "name": "files",
+              "source": "additionalFields"
+            },
+            {
+              "name": "signers",
+              "source": "additionalFields"
+            },
+            {
+              "name": "task",
+              "source": "additionalFields"
+            }
+          ],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "BearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "token_requester",
+              "type": "string"
+            }
+          ],
+          "simplifiedFields": [
+            "token_requester"
+          ]
+        },
+        "errors": [
+          {
+            "status": "401",
+            "title": "Authentication credentials are missing or invalid"
+          }
+        ],
+        "unsupportedSemantics": [
+          "advanced parameter files",
+          "advanced parameter signers"
+        ]
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "downloadSignedFiles",
+      "method": "GET",
+      "path": "/{server}/v1/signature/{token}/download-signed",
+      "serverId": "documentServer1HttpsApiIlovepdfComV1",
+      "authentication": [
+        {
+          "schemes": [
+            "BearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "server",
+          "inputName": "server",
+          "sample": "value/id",
+          "location": "path",
+          "required": true,
+          "arrayFormat": "indices"
+        },
+        {
+          "name": "token",
+          "inputName": "token",
+          "sample": "value/id",
+          "location": "path",
+          "required": true,
+          "arrayFormat": "indices"
+        }
+      ],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": []
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {},
+      "errors": [
+        {
+          "status": "401",
+          "title": "Authentication credentials are missing or invalid"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "downloadSignedFiles",
+        "method": "GET",
+        "path": "/{server}/v1/signature/{token}/download-signed",
+        "serverId": "documentServer1HttpsApiIlovepdfComV1",
+        "request": {
+          "method": "GET",
+          "url": "=/{{$parameter[\"server\"]}}/v1/signature/{{$parameter[\"token\"]}}/download-signed",
+          "query": [],
+          "body": [],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "BearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {},
+        "errors": [
+          {
+            "status": "401",
+            "title": "Authentication credentials are missing or invalid"
+          }
+        ],
+        "unsupportedSemantics": []
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "getSignatureStatus",
+      "method": "GET",
+      "path": "/v1/signature/requesterview/{token_requester}",
+      "serverId": "documentServer1HttpsApiIlovepdfComV1",
+      "authentication": [
+        {
+          "schemes": [
+            "BearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "token_requester",
+          "inputName": "token_requester",
+          "sample": "value/id",
+          "location": "path",
+          "required": true,
+          "arrayFormat": "indices"
+        }
+      ],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": []
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "status",
+            "type": "string"
+          }
+        ],
+        "simplifiedFields": [
+          "status"
+        ]
+      },
+      "errors": [
+        {
+          "status": "401",
+          "title": "Authentication credentials are missing or invalid"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "getSignatureStatus",
+        "method": "GET",
+        "path": "/v1/signature/requesterview/{token_requester}",
+        "serverId": "documentServer1HttpsApiIlovepdfComV1",
+        "request": {
+          "method": "GET",
+          "url": "=/v1/signature/requesterview/{{$parameter[\"token_requester\"]}}",
+          "query": [],
+          "body": [],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "BearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "status",
+              "type": "string"
+            }
+          ],
+          "simplifiedFields": [
+            "status"
+          ]
+        },
+        "errors": [
+          {
+            "status": "401",
+            "title": "Authentication credentials are missing or invalid"
+          }
+        ],
+        "unsupportedSemantics": []
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    },
+    {
+      "operationId": "listSignatures",
+      "method": "GET",
+      "path": "/v1/signature/list",
+      "serverId": "documentServer1HttpsApiIlovepdfComV1",
+      "authentication": [
+        {
+          "schemes": [
+            "BearerAuth"
+          ],
+          "scopes": []
+        }
+      ],
+      "parameters": [
+        {
+          "name": "page",
+          "inputName": "page",
+          "sample": 1,
+          "default": 1,
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        },
+        {
+          "name": "per-page",
+          "inputName": "per-page",
+          "sample": 20,
+          "default": 20,
+          "location": "query",
+          "required": false,
+          "arrayFormat": "indices"
+        }
+      ],
+      "request": {
+        "contentType": "application/json",
+        "representation": "structured",
+        "fields": []
+      },
+      "retry": {},
+      "pagination": {
+        "style": "none"
+      },
+      "response": {
+        "fields": [
+          {
+            "name": "signatures",
+            "type": "array"
+          }
+        ],
+        "simplifiedFields": [
+          "signatures"
+        ]
+      },
+      "errors": [
+        {
+          "status": "401",
+          "title": "Authentication credentials are missing or invalid"
+        }
+      ],
+      "requestPlan": {
+        "operationId": "listSignatures",
+        "method": "GET",
+        "path": "/v1/signature/list",
+        "serverId": "documentServer1HttpsApiIlovepdfComV1",
+        "request": {
+          "method": "GET",
+          "url": "=/v1/signature/list",
+          "query": [
+            {
+              "name": "page",
+              "source": "additionalFields"
+            },
+            {
+              "name": "per-page",
+              "source": "additionalFields"
+            }
+          ],
+          "body": [],
+          "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          }
+        },
+        "authentication": [
+          {
+            "schemes": [
+              "BearerAuth"
+            ],
+            "scopes": []
+          }
+        ],
+        "retry": {},
+        "pagination": {
+          "style": "none"
+        },
+        "response": {
+          "fields": [
+            {
+              "name": "signatures",
+              "type": "array"
+            }
+          ],
+          "simplifiedFields": [
+            "signatures"
+          ]
+        },
+        "errors": [
+          {
+            "status": "401",
+            "title": "Authentication credentials are missing or invalid"
+          }
+        ],
+        "unsupportedSemantics": []
+      },
+      "assertions": [
+        "retry attempts preserve request and pagination state until a response succeeds",
+        "pagination advances only after a completed page response",
+        "pagination terminates within declared page, item, elapsed-time, memory, repeated-cursor, and repeated-page budgets"
+      ]
+    }
+  ],
+  "triggerFixtures": []
+}

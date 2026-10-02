@@ -1,0 +1,63 @@
+{
+  "author": {
+    "email": "hello@nativeship.io",
+    "name": "nativeship",
+    "url": "https://github.com/nativeship"
+  },
+  "description": "Helps you merge, split, compress, convert, and edit PDF files.",
+  "devDependencies": {
+    "@n8n/node-cli": "0.41.2",
+    "@types/node": "22.15.29",
+    "eslint": "9.29.0",
+    "prettier": "3.6.2",
+    "typescript": "5.9.3"
+  },
+  "engines": {
+    "node": "\u003e=22.22.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/nativeship/n8n-nodes-i-love-pdf",
+  "keywords": [
+    "n8n-community-node-package",
+    "i-love-pdf",
+    "nativeship-nodes",
+    "n8n-nodes",
+    "nativeship-n8n-nodes",
+    "pdf-n8n-nodes",
+    "pdf-nodes"
+  ],
+  "license": "MIT",
+  "n8n": {
+    "credentials": [
+      "dist/credentials/IlovepdfApi.credentials.js"
+    ],
+    "n8nNodesApiVersion": 1,
+    "nodes": [
+      "dist/nodes/Ilovepdf/Ilovepdf.node.js"
+    ],
+    "strict": true
+  },
+  "name": "@nativeship/n8n-nodes-i-love-pdf",
+  "nativeShip": {
+    "artifactSha256": "e48e4a47125409cea1d3ec61f25740399c590e8676e84047a7bc59d09baf65d1"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nativeship/n8n-nodes-i-love-pdf.git"
+  },
+  "scripts": {
+    "build": "n8n-node build",
+    "dev": "n8n-node dev",
+    "lint": "n8n-node lint",
+    "lint:fix": "n8n-node lint --fix"
+  },
+  "version": "1.0.0"
+}
